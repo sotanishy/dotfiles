@@ -116,12 +116,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# User defined scripts
+# local connfigurations
+if [ -f ~/.bashrc.local ]; then
+	source ~/.bashrc.local
+fi
 
-export WIN_HOME=/mnt/c/Users/2480s/
-
+# config for competitive programming
 alias gxx="g++ -std=c++17 -Wall -Wextra -fsanitize=undefined -D_GLIBCXX_DEBUG"
-export CPLUS_INCLUDE_PATH="/mnt/c/Users/2480s/Coding/Competitive Programming/library/ACL"
 
 # Powerline configuration
 # if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then

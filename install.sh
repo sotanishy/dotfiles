@@ -1,9 +1,12 @@
 #!/bin/bash
 
+dotfiles_root="$(cd "$(dirname "$SOURCE")" && pwd)"
+
 for f in .??*
 do
 	[[ "$f" == ".git" ]] && continue
+	[[ "$f" == ".gitignore" ]] && continue
 
-	ln -s "$(cd "$(dirname "$0")" && pwd)"/$f ~/$f
+	ln -si $dotfiles_root/$f ~/$f
 	echo $f
 done
