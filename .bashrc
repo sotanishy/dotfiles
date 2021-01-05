@@ -121,8 +121,6 @@ if [ -f ~/.bashrc.local ]; then
 	source ~/.bashrc.local
 fi
 
-# config for competitive programming
-alias gxx="g++ -std=c++17 -Wall -Wextra -fsanitize=undefined -D_GLIBCXX_DEBUG"
 
 # Powerline configuration
 # if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
