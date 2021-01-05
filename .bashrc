@@ -118,9 +118,8 @@ fi
 
 # local connfigurations
 if [ -f ~/.bashrc.local ]; then
-	source ~/.bashrc.local
+	. ~/.bashrc.local
 fi
-
 
 # Powerline configuration
 # if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
