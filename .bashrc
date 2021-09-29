@@ -121,10 +121,14 @@ if [ -f ~/.bashrc.local ]; then
 	. ~/.bashrc.local
 fi
 
-# Powerline configuration
-# if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
-#   powerline-daemon -q
-#   POWERLINE_BASH_CONTINUATION=1
-#   POWERLINE_BASH_SELECT=1
-#  source /usr/share/powerline/bindings/bash/powerline.sh
-# fi
+# config for cuda
+export PATH=/usr/local/cuda-11/bin:${PATH}
+export LD_LIBRARY_PATH=/usr/local/cuda-11/lib64:${LD_LIBRARY_PATH}
+
+# config for pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
+fi
+. "$HOME/.cargo/env"
