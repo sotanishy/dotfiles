@@ -19,6 +19,7 @@ set title
 syntax enable
 " use system clipboard
 set clipboard=unnamed,unnamedplus
+set hidden
 
 " ---------------------
 " visual settings
