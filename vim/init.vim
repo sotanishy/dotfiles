@@ -1,4 +1,40 @@
-let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
+set nocompatible
+
+set runtimepath+=~/.vim/
+
+
+"---------------------
+" dein.vim
+"---------------------
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" if dein.vim does not exist, clone from github
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  let s:toml_dir = expand('~/.config/nvim')
+
+  " load on startup
+  call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
+
+  " load lazy
+  " call dein#load_toml(s:toml_dir . '/dein_lazy.toml', {'lazy': 1})
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
+endif
 
 "---------------------
 " general settings
@@ -11,7 +47,7 @@ set nobackup
 set noswapfile
 " automatically reload the file when edited
 set autoread
-" show the current command
+" show the current command on the status line
 set showcmd
 " show the file name
 set title
@@ -19,12 +55,13 @@ set title
 syntax enable
 " use system clipboard
 set clipboard=unnamed,unnamedplus
+" enable hidden buffer
 set hidden
 
 " ---------------------
 " visual settings
 " ---------------------
-set guifont=Consolas\ 13
+" set guifont=Consolas\ 13
 " show line number
 set number
 " highlight the current line
@@ -41,6 +78,8 @@ set laststatus=2
 set visualbell
 " visualize whitespaces
 set list
+set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
+" show 8 lines above and below the cursor
 set scrolloff=8
 
 " ---------------------
@@ -80,24 +119,5 @@ set background=dark
 " keymaps
 " ---------------------
 " movement by screen line instead of file line
-nnoremap j gj
-nnoremap k gk
-
-" ---------------------
-" Plugins
-" ---------------------
-if &compatible
-  set nocompatible
-endif
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-  call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
-  call dein#end()
-  call dein#save_state()
-endif
-if dein#check_install()
-  call dein#install()
- endif
-filetype plugin indent on
-syntax enable
+" nnoremap j gj
+" nnoremap k gk
