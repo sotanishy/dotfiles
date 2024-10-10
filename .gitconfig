@@ -1,6 +1,5 @@
-[include]
-	path = ~/.gitconfig.local
 [core]
-	autocrlf = false
+autocrlf = false
+
 [credential]
-	helper = cache
+helper = cache
