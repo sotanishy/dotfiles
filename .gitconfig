@@ -3,3 +3,5 @@ autocrlf = false
 
 [credential]
 helper = cache
+[user]
+	email = Sota Nishiyama

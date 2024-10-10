@@ -1,3 +1,26 @@
-alias gxx="g++ -std=c++20 -Wall -Wextra -fsanitize=undefined -D_GLIBCXX_DEBUG"
-alias clipboard="xclip -sel clip"
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+alias reload='source ~/.zshrc'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
+# git
+alias g='git'
+alias ga='git add'
+alias gd='git diff'
+alias gs='git status'
+alias gp='git push'
+alias gb='git branch'
+alias gco='git checkout'
+alias gf='git fetch'
+alias gc='git commit'
+
+# others
+alias gxx='g++ -std=c++20 -Wall -Wextra -fsanitize=undefined -D_GLIBCXX_DEBUG'
+alias clipboard='xclip -sel clip'

@@ -10,7 +10,8 @@ zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
-        echo; zplug install
+        echo
+        zplug install
     fi
 fi
 
@@ -32,22 +33,11 @@ HISTSIZE=10000
 SAVEHIST=100000
 
 setopt inc_append_history
-setopt share_history  # share history with other terminals
+setopt share_history # share history with other terminals
 setopt hist_ignore_all_dups
 
 # less
 export LESS='-R'
-
-# alias
-alias ls='ls --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias mkdir='mkdir -p'
-alias reload='source ~/.zshrc'
 
 # prompt
 # autoload -Uz vcs_info
@@ -58,27 +48,10 @@ alias reload='source ~/.zshrc'
 # %# '
 
 # options
-setopt correct  # correct misspelled commands
-setopt ignoreeof  # prevent logout on ctrl+d
+setopt correct   # correct misspelled commands
+setopt ignoreeof # prevent logout on ctrl+d
 
 # cd
-alias ...='../..'
-alias ....='../../..'
 setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
-
-# rust
-export RUST_BACKTRACE=1
-
-# opam configuration
-[[ ! -r /home/sotanishy/.opam/opam-init/init.zsh ]] || source /home/sotanishy/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
