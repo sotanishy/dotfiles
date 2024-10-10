@@ -27,11 +27,6 @@ chsh -s $(which zsh)
 ```
 Log out and log back in.
 
-Install zplug
-```
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-```
-
 Install the config files.
 ```
 ./install.sh
